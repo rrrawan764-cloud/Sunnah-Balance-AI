@@ -1,0 +1,5 @@
+venv/
+venv_sunnah/
+__pycache__/
+*.so
+*.mp4
