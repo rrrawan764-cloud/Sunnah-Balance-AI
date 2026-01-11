@@ -6,49 +6,47 @@
     <title>ميزان السنة | Sunnah Balance AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2c3e50; --secondary: #27ae60; --accent: #3498db; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
-        header { background: linear-gradient(135deg, var(--primary), #34495e); color: white; padding: 3rem 1rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
-        .container { max-width: 900px; margin: -50px auto 50px; padding: 20px; }
-        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; background: #000; margin: 25px 0; border: 4px solid var(--primary); }
-        .video-placeholder { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; }
-        .tech-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 8px 15px; border-radius: 50px; font-weight: bold; margin: 5px; font-size: 0.85rem; }
-        .btn-github { background: var(--primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin-top: 20px; }
-        .btn-github:hover { background: var(--accent); transform: translateY(-3px); }
-        .status { color: var(--secondary); font-weight: bold; margin-bottom: 10px; display: block; }
+        :root { --primary: #2c3e50; --secondary: #27ae60; --accent: #3498db; --bg: #f0f2f5; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: #333; }
+        
+        /* الهيدر */
+        header { background: linear-gradient(135deg, var(--primary), #34495e); color: white; padding: 4rem 1rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+        header h1 { margin: 0; font-size: 2.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+
+        /* الحاوية الرئيسية */
+        .container { max-width: 900px; margin: -60px auto 50px; padding: 0 20px; }
+        .card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); }
+        
+        .status-badge { background: #e8f5e9; color: var(--secondary); padding: 8px 20px; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+
+        /* قسم الفيديو */
+        .video-section { margin: 30px 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; background: #000; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border: 3px solid var(--primary); }
+        .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .placeholder-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; }
+
+        /* التقنيات */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0; justify-content: center; }
+        .tech-tag { background: #f8f9fa; border: 1px solid #ddd; padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+
+        /* قائمة المهام */
+        .roadmap { text-align: right; background: #f9f9f9; padding: 20px; border-radius: 15px; margin-top: 30px; }
+        .roadmap h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .roadmap ul { list-style: none; padding: 0; }
+        .roadmap li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        
+        /* الأزرار */
+        .actions { margin-top: 40px; display: flex; gap: 15px; justify-content: center; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--accent); transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
     <header>
-        <h1><i class="fas fa-balance-scale"></i> ميزان السنة</h1>
-        <p>تطبيق الذكاء الاصطناعي لتصحيح هيئات الصلاة</p>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <span class="status"><i class="fas fa-check-circle"></i> مشروع تقني إسلامي قيد التطوير</span>
-            <h2>كيف يعمل النظام؟</h2>
-            <p>يستخدم "ميزان السنة" خوارزميات الرؤية الحاسوبية لرصد 33 نقطة في جسم المصلي وتحليل زوايا الركوع والسجود بدقة متناهية.</p>
-
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <i class="fas fa-play-circle fa-4x"></i>
-                    <p>سيتم عرض تحليل الكاميرا هنا قريباً</p>
-                </div>
-                </div>
-
-            <div class="tech-stack">
-                <span class="tech-tag">Python 3.13</span>
-                <span class="tech-tag">Mediapipe AI</span>
-                <span class="tech-tag">Deep Tech</span>
-                <span class="tech-tag">OpenCV</span>
-            </div>
-
-            <a href="https://github.com/rrrawan764-cloud/Sunnah-Balance-AI" class="btn-github">
-                <i class="fab fa-github"></i> تصفح الكود المصدري على GitHub
-            </a>
-        </div>
-    </div>
-</body>
-</html>
+        <h1><i class="fas fa-mosque"></i> ميزان السنة</h1>
+        <p>تحليل هيئات الصلاة بال
