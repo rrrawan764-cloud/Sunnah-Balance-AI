@@ -4,34 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ميزان السنة | Sunnah Balance AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        header { background-color: #2c3e50; color: white; width: 100%; padding: 2rem 0; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .container { max-width: 800px; padding: 2rem; background: white; margin-top: -2rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 2.5rem; }
-        .badge { background: #27ae60; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
-        .tech-stack { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
-        .btn { display: inline-block; background: #3498db; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
-        .btn:hover { background: #2980b9; }
+        :root { --primary: #2c3e50; --secondary: #27ae60; --accent: #3498db; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+        header { background: linear-gradient(135deg, var(--primary), #34495e); color: white; padding: 3rem 1rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+        .container { max-width: 900px; margin: -50px auto 50px; padding: 20px; }
+        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; background: #000; margin: 25px 0; border: 4px solid var(--primary); }
+        .video-placeholder { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; }
+        .tech-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 8px 15px; border-radius: 50px; font-weight: bold; margin: 5px; font-size: 0.85rem; }
+        .btn-github { background: var(--primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin-top: 20px; }
+        .btn-github:hover { background: var(--accent); transform: translateY(-3px); }
+        .status { color: var(--secondary); font-weight: bold; margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
     <header>
-        <h1>ميزان السنة ⚖️🌙</h1>
-        <p>الذكاء الاصطناعي في خدمة العبادة</p>
+        <h1><i class="fas fa-balance-scale"></i> ميزان السنة</h1>
+        <p>تطبيق الذكاء الاصطناعي لتصحيح هيئات الصلاة</p>
     </header>
-    <div class="container">
-        <span class="badge">مشروع ريادي</span>
-        <h2>عن المشروع</h2>
-        <p>نظام "ميزان السنة" هو تطبيق مبتكر يستخدم تقنيات <b>Computer Vision</b> لتحليل هيئات الصلاة والتأكد من مطابقتها للسنة النبوية الشريفة، مما يساعد المصلي على تحسين صلاته بدقة واحترافية.</p>
-        
-        <div class="tech-stack">
-            <span style="background:#eee; padding:5px 10px; border-radius:5px;">Python 3.13</span>
-            <span style="background:#eee; padding:5px 10px; border-radius:5px;">MediaPipe</span>
-            <span style="background:#eee; padding:5px 10px; border-radius:5px;">OpenCV</span>
-        </div>
 
-        <a href="https://github.com/rrrawan764-cloud/Sunnah-Balance-AI" class="btn">تصفح الكود المصدري</a>
+    <div class="container">
+        <div class="card">
+            <span class="status"><i class="fas fa-check-circle"></i> مشروع تقني إسلامي قيد التطوير</span>
+            <h2>كيف يعمل النظام؟</h2>
+            <p>يستخدم "ميزان السنة" خوارزميات الرؤية الحاسوبية لرصد 33 نقطة في جسم المصلي وتحليل زوايا الركوع والسجود بدقة متناهية.</p>
+
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle fa-4x"></i>
+                    <p>سيتم عرض تحليل الكاميرا هنا قريباً</p>
+                </div>
+                </div>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Python 3.13</span>
+                <span class="tech-tag">Mediapipe AI</span>
+                <span class="tech-tag">Deep Tech</span>
+                <span class="tech-tag">OpenCV</span>
+            </div>
+
+            <a href="https://github.com/rrrawan764-cloud/Sunnah-Balance-AI" class="btn-github">
+                <i class="fab fa-github"></i> تصفح الكود المصدري على GitHub
+            </a>
+        </div>
     </div>
 </body>
 </html>
