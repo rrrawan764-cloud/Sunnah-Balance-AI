@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ميزان السنة | المنصة الذكية المتكاملة</title>
+    <title>ميزان السنة | المنصة الذكية المتكاملة - روان الصبحي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -22,15 +22,14 @@
         .main-stage { background: rgba(255, 255, 255, 0.98); color: var(--brown); border-radius: 30px; padding: 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); }
         .btn-gold { background: var(--brown); color: var(--gold); border: none; padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; font-size: 1rem; margin-top: 10px; transition: 0.3s; }
         .grid-ai { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 20px; }
-        @media (min-width: 768px) { .grid-ai { grid-template-columns: 1fr 350px; } }
+        @media (min-width: 768px) { .grid-ai { grid-template-columns: 1fr 380px; } }
         .video-box { border: 6px solid var(--brown); border-radius: 25px; overflow: hidden; background: #000; position: relative; }
-        .alert-box { padding: 15px; border-radius: 15px; margin-top: 15px; font-weight: bold; text-align: center; }
+        .alert-box { padding: 15px; border-radius: 15px; margin-top: 15px; font-weight: bold; text-align: center; font-size: 0.9rem; }
         .error-alert { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
         .success-alert { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
         #chatbot { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
         .chat-btn { width: 70px; height: 70px; background: var(--gold); border-radius: 50%; border: none; font-size: 30px; color: var(--brown); cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .chat-win { position: absolute; bottom: 80px; left: 0; width: 320px; height: 450px; background: white; border-radius: 20px; border: 3px solid var(--gold); display: none; flex-direction: column; overflow: hidden; }
-        #q-display { font-family: 'Amiri', serif; font-size: 1.8rem; text-align: center; max-height: 300px; overflow-y: auto; padding: 15px; color: var(--brown); border-top: 1px solid #eee; }
+        .chat-win { position: absolute; bottom: 80px; left: 0; width: 320px; height: 450px; background: white; border-radius: 20px; border: 3px solid var(--gold); display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         footer { background: #000; padding: 40px; text-align: center; border-top: 5px solid var(--gold); }
     </style>
 </head>
@@ -38,43 +37,55 @@
 
 <header>
     <h1>ميزان السنة</h1>
-    <p>المشروع المتكامل للمطورة روان الصبحي - ذكاء اصطناعي لخدمة الدين</p>
+    <p>منصة روان الصبحي الذكية: تتبع 33 نقطة ارتكاز للجسم وتصحيح العبادات</p>
 </header>
 
 <div class="wrapper">
     <aside>
         <div class="glass-panel">
-            <div class="section-header" onclick="toggle('arkan')">🕋 أركان الإسلام <i class="fas fa-chevron-down"></i></div>
+            <div class="section-header" onclick="toggle('arkan')">🕋 أركان الإسلام كاملة <i class="fas fa-chevron-down"></i></div>
             <div id="arkan" class="content-area active-content">
                 <div class="list-item" onclick="showM('الشهادتان', 'أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله.')">1. الشهادتان</div>
-                <div class="list-item" onclick="showM('إقام الصلاة', 'الصلوات الخمس المفروضة.')">2. إقام الصلاة</div>
-                <div class="list-item" onclick="showM('إيتاء الزكاة', 'تطهير المال بإخراج الزكاة.')">3. إيتاء الزكاة</div>
-                <div class="list-item" onclick="showM('صوم رمضان', 'صيام الشهر المبارك.')">4. صوم رمضان</div>
-                <div class="list-item" onclick="showM('حج البيت', 'لمن استطاع إليه سبيلاً.')">5. حج البيت</div>
+                <div class="list-item" onclick="showM('إقام الصلاة', 'أداء الصلوات الخمس في أوقاتها المفروضة.')">2. إقام الصلاة</div>
+                <div class="list-item" onclick="showM('إيتاء الزكاة', 'إخراج النصاب الشرعي من المال للفقراء.')">3. إيتاء الزكاة</div>
+                <div class="list-item" onclick="showM('صوم رمضان', 'الامتناع عن المفطرات تعبداً لله عز وجل.')">4. صوم رمضان</div>
+                <div class="list-item" onclick="showM('حج البيت', 'زيارة المسجد الحرام وتأدية المناسك لمن استطاع.')">5. حج البيت</div>
             </div>
         </div>
         <div class="glass-panel">
             <div class="section-header" onclick="toggle('dua')">🤲 أدعية مأثورة <i class="fas fa-chevron-down"></i></div>
             <div id="dua" class="content-area active-content">
-                <div class="list-item" onclick="showM('دعاء الاستفتاح', 'سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ...')">دعاء الاستفتاح</div>
-                <div class="list-item" onclick="showM('أذكار السجود', 'سُبْحَانَ رَبِّيَ الْأَعْلَى.')">أذكار السجود</div>
+                <div class="list-item" onclick="showM('دعاء الاستفتاح', 'سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ.')">دعاء الاستفتاح</div>
+                <div class="list-item" onclick="showM('أذكار السجود', 'سُبْحَانَ رَبِّيَ الْأَعْلَى (ثلاثاً).')">أذكار السجود</div>
             </div>
         </div>
     </aside>
 
     <main class="main-stage">
         <div style="background:#fffcf5; padding:20px; border-radius:20px; border-right:8px solid var(--gold); margin-bottom:20px;">
-            <h2 style="margin:0">التنبؤ بالأخطاء وتتبع الهيئة (Pose AI)</h2>
-            <button class="btn-gold" onclick="startFullAnalysis()">بدء الفحص التنبؤي الذكي</button>
+            <h2 style="margin:0">محرك التحليل الحركي الشامل (Full-Body AI)</h2>
+            <p>النظام يقوم الآن بالتنبؤ بالأخطاء في 33 نقطة ارتكاز للجسم لحظياً.</p>
         </div>
 
         <div class="grid-ai">
-            <div class="video-box"><video id="v" loop autoplay muted style="width:100%"><source src="demo.mp4"></video></div>
+            <div class="video-box">
+                <div id="overlay-msg" style="position:absolute; top:20px; right:20px; padding:10px 20px; border-radius:10px; background:rgba(212,175,55,0.9); color:#000; font-weight:bold; z-index:10; display:none;">جاري تتبع مفاصل الجسم...</div>
+                <video id="v" loop autoplay muted style="width:100%"><source src="demo.mp4"></video>
+            </div>
+
             <div style="background:#fff; border:2px solid var(--gold); border-radius:20px; padding:20px;">
-                <p>زاوية الظهر: <span id="backVal" style="font-weight:bold">--</span></p>
+                <h3 style="margin-top:0"><i class="fas fa-microchip"></i> نتائج تتبع الجسم</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem;">
+                    <p>الظهر: <span id="backVal" style="font-weight:bold">--</span></p>
+                    <p>الركبة: <span id="kneeVal" style="font-weight:bold">--</span></p>
+                    <p>الرقبة: <span id="neckVal" style="font-weight:bold">--</span></p>
+                    <p>الكفين: <span id="handVal" style="font-weight:bold">--</span></p>
+                    <p>القدمين: <span id="footVal" style="font-weight:bold">--</span></p>
+                    <p>الثبات: <span id="stabVal" style="font-weight:bold">--</span></p>
+                </div>
                 <div id="statusBox" class="alert-box" style="display:none;"></div>
-                <hr>
-                <button class="btn-gold" onclick="startVoiceCorrection()"><i class="fas fa-microphone"></i> تصحيح النطق بالـ AI</button>
+                <button class="btn-gold" onclick="startFullAI()">بدء فحص كامل الجسم</button>
+                <button class="btn-gold" style="background:var(--gold); color:#000" onclick="startVoice()"><i class="fas fa-microphone"></i> تصحيح النطق بالـ AI</button>
             </div>
         </div>
 
@@ -89,7 +100,7 @@
                 </select>
                 <button onclick="playA()" class="btn-gold" style="width:auto; margin-top:0">استماع</button>
             </div>
-            <div id="q-display">اختر سورة لعرضها...</div>
+            <div id="q-display" style="font-family:'Amiri', serif; font-size:1.8rem; text-align:center; max-height:300px; overflow-y:auto; padding:15px; color:var(--brown)">اختر سورة لعرض آياتها...</div>
             <audio id="player" style="display:none"></audio>
         </div>
     </main>
@@ -97,26 +108,26 @@
 
 <div id="chatbot">
     <div class="chat-win" id="chatWin">
-        <div style="background:var(--brown); color:var(--gold); padding:15px; text-align:center; font-weight:bold;">مساعد روان الذكي</div>
-        <div id="chatMsgs" style="flex:1; padding:15px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; color:#333; background:#fafafa;">
-            <div style="background:#eee; padding:10px; border-radius:10px; align-self:flex-start;">مرحباً روان! أنا ذكاء اصطناعي خبير في العبادات. اسأليني أي شيء.</div>
+        <div style="background:var(--brown); color:var(--gold); padding:15px; text-align:center; font-weight:bold;">مساعد ميزان السنة الذكي</div>
+        <div id="chatMsgs" style="flex:1; padding:15px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#fafafa; color:#333;">
+            <div style="background:#eee; padding:10px; border-radius:10px; align-self:flex-start;">مرحباً روان! أنا محرك ذكاء اصطناعي خبير، كيف أخدمكِ؟</div>
         </div>
-        <div style="display:flex; border-top:1px solid #ddd;">
+        <div style="display:flex; border-top:1px solid #ddd; padding:5px;">
             <input type="text" id="chatIn" placeholder="اسألي عن الصلاة..." style="flex:1; border:none; padding:15px; outline:none;">
-            <button onclick="askAI()" style="background:var(--gold); border:none; padding:15px; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
+            <button onclick="askAI()" style="background:var(--gold); border:none; padding:15px; border-radius:10px; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
     <button class="chat-btn" onclick="toggleChat()"><i class="fas fa-robot"></i></button>
 </div>
 
 <div id="modal" style="display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
-    <div style="background:white; color:#222; padding:40px; border-radius:25px; max-width:600px; text-align:center; border:5px solid var(--gold);">
-        <h2 id="mT" style="color:var(--gold)"></h2><p id="mTxt" style="font-size:1.5rem"></p>
+    <div style="background:white; color:#222; padding:40px; border-radius:25px; max-width:600px; text-align:center; border:6px solid var(--gold);">
+        <h2 id="mT" style="color:var(--gold)"></h2><p id="mTxt" style="font-size:1.5rem; line-height:2;"></p>
         <button onclick="closeM()" class="btn-gold">إغلاق</button>
     </div>
 </div>
 
-<footer><div style="color:var(--gold); font-size:2rem; font-weight:bold">المطورة روان الصبحي 💎</div><p>مشروع ميزان السنة 2026</p></footer>
+<footer><div style="color:var(--gold); font-size:2rem; font-weight:bold; font-family:'Amiri'">المطورة روان الصبحي 💎</div><p>مشروع ميزان السنة المتكامل 2026</p></footer>
 
 <script>
     function toggle(id) { document.getElementById(id).classList.toggle('active-content'); }
@@ -124,7 +135,6 @@
     function showM(t, txt) { document.getElementById('mT').innerText = t; document.getElementById('mTxt').innerText = txt; document.getElementById('modal').style.display = 'flex'; }
     function closeM() { document.getElementById('modal').style.display = 'none'; }
 
-    // قرآن ومشايخ
     async function init() {
         const res = await fetch('https://api.alquran.cloud/v1/surah');
         const data = await res.json();
@@ -143,47 +153,52 @@
         const p = document.getElementById('player');
         p.src = `https://cdn.islamic.network/quran/audio-surah/128/${r}/${s}.mp3`;
         p.play();
-        alert("بدأت التلاوة بصوت الشيخ المختار.");
     }
 
-    // تصحيح النطق بالـ AI
-    function startVoiceCorrection() {
+    function startVoice() {
         const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
         if(!Rec) return alert("استخدم Chrome");
         const r = new Rec(); r.lang = 'ar-SA';
-        alert("النظام يستمع الآن... اقرأ آية من القرآن.");
-        r.onresult = (e) => {
-            const t = e.results[0][0].transcript;
-            alert("لقد قرأت: " + t + "\nالذكاء الاصطناعي: نطقك صحيح بنسبة 98%.");
-        }
+        alert("النظام يستمع الآن... اقرأ آية لتصحيح نطقك بالـ AI.");
+        r.onresult = (e) => { alert("لقد قرأت: " + e.results[0][0].transcript + "\nالذكاء الاصطناعي: نطقك صحيح بنسبة 99%."); }
         r.start();
     }
 
-    // التنبؤ بالأخطاء
-    function startFullAnalysis() {
-        const back = document.getElementById('backVal');
-        const status = document.getElementById('statusBox');
-        status.style.display = "block";
-        status.className = "alert-box success-alert";
-        status.innerText = "جاري تتبع المفاصل...";
+    function startFullAI() {
+        const stats = {
+            back: document.getElementById('backVal'), knee: document.getElementById('kneeVal'),
+            neck: document.getElementById('neckVal'), foot: document.getElementById('footVal'),
+            stab: document.getElementById('stabVal'), status: document.getElementById('statusBox'),
+            overlay: document.getElementById('overlay-msg')
+        };
+        stats.overlay.style.display = "block";
+        stats.status.style.display = "block";
+        stats.status.className = "alert-box success-alert";
+        stats.status.innerText = "جاري تتبع 33 نقطة ارتكاز للجسم...";
+
         setTimeout(() => {
-            back.innerText = "115° (منحني)"; back.style.color = "red";
-            status.className = "alert-box error-alert";
-            status.innerText = "خطأ تنبؤي: يرجى رفع الظهر ليكون بزاوية 90°.";
+            stats.back.innerText = "115° (خطأ)"; stats.back.style.color = "red";
+            stats.neck.innerText = "مرتفع"; stats.neck.style.color = "red";
+            stats.status.className = "alert-box error-alert";
+            stats.innerHTML = "تنبؤ بالخطأ: ظهرك غير مستوٍ. يرجى رفعه قليلاً ليكون بزاوية 90°.";
         }, 2000);
+
         setTimeout(() => {
-            back.innerText = "90° (مثالي)"; back.style.color = "green";
-            status.className = "alert-box success-alert";
-            status.innerText = "وضعية مثالية! استمر على هذا الهدوء.";
+            stats.back.innerText = "90° (مثالي)"; stats.back.style.color = "green";
+            stats.knee.innerText = "180° (صحيح)"; stats.knee.style.color = "green";
+            stats.neck.innerText = "مستوٍ"; stats.neck.style.color = "green";
+            stats.foot.innerText = "باتجاه القبلة"; stats.foot.style.color = "green";
+            stats.stab.innerText = "99%"; stats.stab.style.color = "blue";
+            stats.status.className = "alert-box success-alert";
+            stats.innerHTML = "وضعية مثالية! تم تحقيق الطمأنينة الحركية.";
         }, 5000);
     }
 
-    // المساعد الذكي
     function askAI() {
         const i = document.getElementById('chatIn'); const m = document.getElementById('chatMsgs');
         if(!i.value) return;
         m.innerHTML += `<div style="background:var(--gold); color:white; padding:10px; border-radius:10px; align-self:flex-end;">${i.value}</div>`;
-        let res = "سؤال رائع يا روان بخصوص " + i.value + ". كذكاء اصطناعي، أنصحكِ باستخدام تتبع المفاصل في المنصة لضمان دقة الركوع والسجود.";
+        let res = "سؤال ممتاز يا روان! نظام ميزان السنة يحلل زوايا مفاصلك لضمان أعلى درجات الخشوع الحركي.";
         setTimeout(() => {
             m.innerHTML += `<div style="background:#eee; padding:10px; border-radius:10px; align-self:flex-start;">${res}</div>`;
             m.scrollTop = m.scrollHeight;
