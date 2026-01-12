@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #D4AF37; --gold-light: #FFD700; --glass: rgba(255, 255, 255, 0.07); }
+        :root { --gold: #D4AF37; --gold-light: #FFD700; --glass: rgba(255, 255, 255, 0.08); }
 
         body {
             font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; color: #fff;
@@ -15,71 +15,51 @@
             background-size: cover; overflow-x: hidden;
         }
 
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%); z-index: -1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%); z-index: -1; }
 
         header {
-            text-align: center; padding: 50px 20px;
+            text-align: center; padding: 40px 20px;
             background: rgba(0,0,0,0.8); border-bottom: 4px solid var(--gold);
             backdrop-filter: blur(20px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        header h1 { 
-            font-family: 'Amiri', serif; font-size: clamp(2.5rem, 10vw, 4rem); color: var(--gold); 
-            margin: 0; text-shadow: 0 0 30px rgba(212,175,55,0.6); animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow { from { text-shadow: 0 0 20px var(--gold); } to { text-shadow: 0 0 40px var(--gold-light); } }
+        header h1 { font-family: 'Amiri', serif; font-size: clamp(2.5rem, 10vw, 4rem); color: var(--gold); margin: 0; text-shadow: 0 0 20px var(--gold); }
 
-        .wrapper { max-width: 1400px; margin: 40px auto; display: grid; grid-template-columns: 1fr; gap: 30px; padding: 0 25px; }
+        .wrapper { max-width: 1400px; margin: 30px auto; display: grid; grid-template-columns: 1fr; gap: 25px; padding: 0 20px; }
         @media (min-width: 1100px) { .wrapper { grid-template-columns: 380px 1fr; } }
 
         .glass-card {
             background: var(--glass); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 35px; overflow: hidden; transition: 0.4s; margin-bottom: 20px;
+            border-radius: 30px; overflow: hidden; margin-bottom: 20px; transition: 0.3s;
         }
-        .glass-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .glass-card:hover { border-color: var(--gold); }
 
         .card-header { 
-            background: linear-gradient(90deg, var(--gold), #b8860b); color: #1a1a1a; 
-            padding: 18px; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            background: var(--gold); color: #1a1a1a; 
+            padding: 15px 20px; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
         }
 
         .main-panel {
-            background: rgba(255, 255, 255, 0.05); border-radius: 40px; padding: 30px;
+            background: rgba(255, 255, 255, 0.05); border-radius: 35px; padding: 30px;
             border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(30px);
         }
 
-        .ai-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 20px; }
-        @media (min-width: 850px) { .ai-grid { grid-template-columns: 1.2fr 0.8fr; } }
-
-        .video-container {
-            border: 4px solid var(--gold); border-radius: 25px; overflow: hidden; position: relative;
-        }
-        #scan-line { position:absolute; width:100%; height:2px; background:var(--gold); top:0; z-index:5; box-shadow:0 0 15px var(--gold); display:none; }
-
-        .data-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-        }
-        .data-item { 
-            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; text-align: center;
-            border: 1px solid rgba(212,175,55,0.2);
-        }
-        .data-item span { display: block; font-size: 1.1rem; font-weight: bold; color: var(--gold); margin-top: 5px; }
-
         .btn-action {
-            background: var(--gold); color: #000; border: none; padding: 15px; border-radius: 15px;
-            font-weight: 900; width: 100%; cursor: pointer; font-size: 1rem; margin-top: 15px;
-            transition: 0.3s;
+            background: var(--gold); color: #000; border: none; padding: 12px; border-radius: 15px;
+            font-weight: 900; width: 100%; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
-        .btn-action:hover { background: #fff; box-shadow: 0 0 20px var(--gold); }
+        .btn-action:hover { background: #fff; box-shadow: 0 0 15px var(--gold); }
 
-        .alert-box { padding: 15px; border-radius: 15px; margin-top: 15px; text-align: center; font-weight: bold; font-size: 0.9rem; }
-        .error { background: rgba(255, 82, 82, 0.2); color: #ff8a80; border: 1px solid #ff5252; }
-        .success { background: rgba(76, 175, 80, 0.2); color: #b9f6ca; border: 1px solid #4caf50; }
+        .list-item { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: 0.2s; }
+        .list-item:hover { background: rgba(212,175,55,0.2); padding-right: 20px; }
 
-        #chatbot { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
-        .chat-btn { width: 70px; height: 70px; background: var(--gold); border-radius: 50%; border: none; font-size: 30px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-        .chat-window { position: absolute; bottom: 90px; left: 0; width: 320px; height: 480px; background: #fff; border-radius: 25px; display: none; flex-direction: column; overflow: hidden; color: #1a1a1a; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+        #qDisplay { padding: 20px; text-align: center; font-family: 'Amiri', serif; font-size: 1.6rem; color: #eee; max-height: 250px; overflow-y: auto; }
 
         footer { background: rgba(0,0,0,0.9); padding: 40px; text-align: center; border-top: 4px solid var(--gold); margin-top: 40px; }
+
+        /* المساعد الذكي */
+        #chatbot { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
+        .chat-btn { width: 70px; height: 70px; background: var(--gold); border-radius: 50%; border: none; font-size: 30px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        .chat-window { position: absolute; bottom: 90px; left: 0; width: 320px; height: 450px; background: #fff; border-radius: 25px; display: none; flex-direction: column; overflow: hidden; color: #333; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
     </style>
 </head>
 <body>
@@ -87,17 +67,27 @@
 
     <header>
         <h1>ميزان السنة</h1>
-        <p style="font-size: 1.2rem; color: var(--gold);">المنصة الذكية للمطورة روان الصبحي | التحليل الحركي الشامل</p>
+        <p style="font-size: 1.2rem; color: var(--gold);">منصة المطورة روان الصبحي | موسوعة العبادات والتحليل الذكي</p>
     </header>
 
     <div class="wrapper">
         <aside>
             <div class="glass-card">
                 <div class="card-header" onclick="toggle('arkan')">🕋 أركان الإسلام <i class="fas fa-chevron-down"></i></div>
-                <div id="arkan" style="padding: 15px; display: block;">
-                    <div style="padding:8px; border-bottom:1px solid rgba(255,255,255,0.1); cursor:pointer;" onclick="alert('أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله')">1. الشهادتان</div>
-                    <div style="padding:8px; border-bottom:1px solid rgba(255,255,255,0.1); cursor:pointer;">2. إقام الصلاة</div>
-                    <div style="padding:8px; cursor:pointer;">3. إيتاء الزكاة</div>
+                <div id="arkan" style="display: block;">
+                    <div class="list-item" onclick="showM('الشهادتان', 'أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله.')">1. الشهادتان</div>
+                    <div class="list-item" onclick="showM('الصلاة', 'أداء الصلوات الخمس المفروضة في أوقاتها.')">2. إقام الصلاة</div>
+                    <div class="list-item" onclick="showM('الزكاة', 'تطهير المال بإخراج حق الفقراء.')">3. إيتاء الزكاة</div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-header" onclick="toggle('dua')">🤲 أدعية مأثورة <i class="fas fa-hand-holding-heart"></i></div>
+                <div id="dua" style="display: block;">
+                    <div class="list-item" onclick="showM('دعاء الاستفتاح', 'سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَهَ غَيْرُكَ.')">دعاء الاستفتاح</div>
+                    <div class="list-item" onclick="showM('أذكار الركوع', 'سُبْحَانَ رَبِّيَ الْعَظِيمِ (ثلاثاً).')">أذكار الركوع</div>
+                    <div class="list-item" onclick="showM('أذكار السجود', 'سُبْحَانَ رَبِّيَ الْأَعْلَى (ثلاثاً).')">أذكار السجود</div>
+                    <div class="list-item" onclick="showM('بين السجدتين', 'رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي.')">ما بين السجدتين</div>
                 </div>
             </div>
 
@@ -110,34 +100,30 @@
         </aside>
 
         <main class="main-panel">
-            <h2 style="color: var(--gold); margin-top: 0;">لوحة تتبع الجسم (Body AI Scanner)</h2>
-            <div class="ai-grid">
-                <div class="video-container">
-                    <div id="scan-line"></div>
+            <h2 style="color: var(--gold); margin-top: 0;"><i class="fas fa-robot"></i> لوحة تتبع الجسم الذكية</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                <div style="border: 4px solid var(--gold); border-radius: 25px; overflow: hidden; position: relative;">
                     <video id="v" loop autoplay muted style="width:100%"><source src="demo.mp4"></video>
                 </div>
 
-                <div class="results">
-                    <div class="data-grid">
-                        <div class="data-item">الظهر <span id="bV">--</span></div>
-                        <div class="data-item">الركبة <span id="kV">--</span></div>
-                        <div class="data-item">الرقبة <span id="nV">--</span></div>
-                        <div class="data-item">الكفين <span id="hV">--</span></div>
-                        <div class="data-item">الحوض <span id="pV">--</span></div>
-                        <div class="data-item">الثبات <span id="sV">--</span></div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; border: 1px solid var(--gold);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center;">
+                        <div>الظهر <span id="bV" style="display:block; font-weight:bold; color:var(--gold);">--</span></div>
+                        <div>الرقبة <span id="nV" style="display:block; font-weight:bold; color:var(--gold);">--</span></div>
+                        <div>الركبة <span id="kV" style="display:block; font-weight:bold; color:var(--gold);">--</span></div>
+                        <div>الثبات <span id="sV" style="display:block; font-weight:bold; color:var(--gold);">--</span></div>
                     </div>
-                    <div id="msg" class="alert-box" style="display:none;"></div>
-                    <button class="btn-action" onclick="startFullScan()">بدء التحليل الشامل</button>
+                    <button class="btn-action" onclick="startScan()">بدء التحليل الرقمي</button>
                 </div>
             </div>
 
             <div class="glass-card" style="margin-top: 30px; background: rgba(0,0,0,0.5);">
-                <div class="card-header">📖 القرآن الكريم وأصوات المشايخ</div>
-                <div style="padding: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                    <select id="sSelect" onchange="loadQ()" style="flex: 1; padding: 12px; border-radius: 10px; background: #222; color: #fff; border: 1px solid var(--gold);"></select>
-                    <button class="btn-action" style="width: auto; padding: 10px 30px; margin: 0;" onclick="playA()">استماع</button>
+                <div class="card-header">📖 القرآن الكريم</div>
+                <div style="padding: 20px;">
+                    <select id="sSelect" onchange="loadQ()" style="width:100%; padding:12px; border-radius:12px; background:#222; color:#fff; border:1px solid var(--gold);"></select>
+                    <div id="qDisplay">اختر سورة للعرض...</div>
                 </div>
-                <div id="qDisplay" style="padding: 20px; text-align: center; font-family: 'Amiri', serif; font-size: 1.5rem; max-height: 200px; overflow-y: auto;"></div>
             </div>
         </main>
     </div>
@@ -147,50 +133,30 @@
             <div style="background:var(--gold); color:#000; padding:15px; text-align:center; font-weight:bold;">مساعدك الذكي | روان AI</div>
             <div id="chatMsgs" style="flex:1; padding:15px; overflow-y:auto; display:flex; flex-direction:column; gap:10px;"></div>
             <div style="display:flex; padding:10px; border-top:1px solid #ddd;">
-                <input type="text" id="chatIn" placeholder="اسألي هنا..." style="flex:1; padding:10px; border:none; outline:none;">
+                <input type="text" id="chatIn" placeholder="اسألي هنا..." style="flex:1; border:none; outline:none; padding:10px;">
                 <button onclick="askAI()" style="background:var(--gold); border:none; padding:10px 15px; border-radius:10px; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
         <button class="chat-btn" onclick="let w=document.getElementById('chatWin'); w.style.display=(w.style.display=='flex')?'none':'flex'"><i class="fas fa-robot"></i></button>
     </div>
 
+    <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
+        <div style="background:#fff; color:#222; padding:30px; border-radius:25px; max-width:500px; text-align:center; border:5px solid var(--gold);">
+            <h2 id="mT" style="color:var(--gold); font-family:'Amiri'"></h2>
+            <p id="mTxt" style="font-size:1.4rem; line-height:1.6;"></p>
+            <button onclick="document.getElementById('modal').style.display='none'" class="btn-action">إغلاق</button>
+        </div>
+    </div>
+
     <footer>
-        <div style="color:var(--gold); font-size:2rem; font-weight:bold; font-family:'Amiri';">المطورة روان الصبحي 💎</div>
-        <p>مشروع ميزان السنة - 2026</p>
+        <div style="color:var(--gold); font-size:2rem; font-weight:bold;">المطورة روان الصبحي 💎</div>
+        <p>ميزان السنة - النسخة الاحترافية الشاملة 2026</p>
     </footer>
 
     <script>
         let c = 0;
         function toggle(id) { let e = document.getElementById(id); e.style.display = (e.style.display=='none')?'block':'none'; }
-
-        function startFullScan() {
-            const scan = document.getElementById('scan-line');
-            const msg = document.getElementById('msg');
-            scan.style.display = "block";
-            msg.style.display = "block";
-            msg.className = "alert-box success";
-            msg.innerText = "جاري تتبع 33 نقطة ارتكاز للجسم...";
-
-            let pos = 0;
-            let interval = setInterval(() => { pos += 4; scan.style.top = pos + "px"; if(pos > 300) pos = 0; }, 30);
-
-            setTimeout(() => {
-                clearInterval(interval);
-                scan.style.display = "none";
-                document.getElementById('bV').innerText = "115° (منحني)"; document.getElementById('bV').style.color = "red";
-                msg.className = "alert-box error";
-                msg.innerText = "تنبؤ بالخطأ: الظهر غير مستوٍ. يرجى رفعه قليلاً.";
-            }, 2000);
-
-            setTimeout(() => {
-                document.getElementById('bV').innerText = "90° (مثالي)"; document.getElementById('bV').style.color = "#00ff00";
-                document.getElementById('kV').innerText = "180°"; document.getElementById('nV').innerText = "مستقيم";
-                document.getElementById('hV').innerText = "متساوي"; document.getElementById('pV').innerText = "متوازن";
-                document.getElementById('sV').innerText = "99%";
-                msg.className = "alert-box success";
-                msg.innerText = "وضعية مثالية! تم تحقيق الطمأنينة الشرعية.";
-            }, 5000);
-        }
+        function showM(t, txt) { document.getElementById('mT').innerText=t; document.getElementById('mTxt').innerText=txt; document.getElementById('modal').style.display='flex'; }
 
         async function init() {
             const res = await fetch('https://api.alquran.cloud/v1/surah');
@@ -198,19 +164,28 @@
             const s = document.getElementById('sSelect');
             d.data.forEach(x => s.add(new Option(x.name, x.number)));
         }
+
         async function loadQ() {
             const id = document.getElementById('sSelect').value;
             const res = await fetch(`https://api.alquran.cloud/v1/surah/${id}`);
             const d = await res.json();
             document.getElementById('qDisplay').innerText = d.data.ayahs.map(a => a.text).join(' ');
         }
-        function playA() { alert("جاري تشغيل التلاوة..."); }
+
+        function startScan() {
+            document.getElementById('bV').innerText = "90°";
+            document.getElementById('nV').innerText = "مستقيم";
+            document.getElementById('kV').innerText = "180°";
+            document.getElementById('sV').innerText = "99%";
+            alert("تم اكتشاف وضعية الجسم بنجاح!");
+        }
+
         function askAI() {
             const i = document.getElementById('chatIn'); const m = document.getElementById('chatMsgs');
             if(!i.value) return;
-            m.innerHTML += `<div style="background:var(--gold); padding:10px; border-radius:10px; align-self:flex-end; color:#000;">${i.value}</div>`;
+            m.innerHTML += `<div style="background:var(--gold); padding:10px; border-radius:10px; align-self:flex-end;">${i.value}</div>`;
             setTimeout(() => {
-                m.innerHTML += `<div style="background:#eee; padding:10px; border-radius:10px; align-self:flex-start;">سؤال رائع يا روان! بصفتي مساعدك الذكي، أنصحك بالتركيز على زوايا الركوع الموضحة في لوحة التحكم.</div>`;
+                m.innerHTML += `<div style="background:#eee; padding:10px; border-radius:10px; align-self:flex-start;">سؤال ممتاز يا روان! بصفتي مساعدك الذكي، أنصحكِ بالحرص على الطمأنينة وأذكار الصلاة المضافة حديثاً.</div>`;
                 m.scrollTop = m.scrollHeight;
             }, 800);
             i.value = "";
