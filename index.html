@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,48 +7,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #D4AF37; --green: #064E3B; --white: #ffffff; --bg: #f8f9fa;
-        }
-        body { font-family: 'Tajawal', sans-serif; background: var(--bg); margin: 0; color: #333; transition: 0.3s; }
+        :root { --gold: #D4AF37; --green: #064E3B; --white: #ffffff; --bg: #f8f9fa; --card: #ffffff; --text: #333; }
+        .dark-mode { --bg: #1a1a1a; --card: #2d2d2d; --text: #eee; --white: #2d2d2d; }
         
-        /* هيدر احترافي */
-        header { 
-            background: linear-gradient(45deg, var(--green), #0a3d31); 
-            color: white; padding: 60px 20px; text-align: center;
-            border-bottom: 5px solid var(--gold);
-        }
+        body { font-family: 'Tajawal', sans-serif; background: var(--bg); margin: 0; color: var(--text); transition: 0.3s; }
+        header { background: linear-gradient(45deg, var(--green), #0a3d31); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
         header h1 { font-family: 'Amiri', serif; font-size: 3rem; margin: 0; }
         
-        .container { max-width: 900px; margin: -40px auto 40px; padding: 0 20px; }
+        .container { max-width: 1000px; margin: -40px auto 40px; padding: 0 20px; }
+        .glass-card { background: var(--card); border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(212, 175, 55, 0.3); margin-bottom: 30px; }
         
-        /* بطاقة المحتوى */
-        .glass-card {
-            background: var(--white); border-radius: 20px; padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(212, 175, 55, 0.3);
-        }
+        .badge { background: #fdf6e3; color: #064E3B; padding: 10px 20px; border-radius: 50px; font-weight: bold; border: 1px solid var(--gold); display: inline-block; margin-bottom: 20px; }
         
-        .badge {
-            background: #fdf6e3; color: var(--green); padding: 10px 20px;
-            border-radius: 50px; font-weight: bold; border: 1px solid var(--gold);
-            display: inline-block; margin-bottom: 20px;
-        }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .info-box { background: rgba(212, 175, 55, 0.05); border: 1px solid var(--gold); padding: 20px; border-radius: 15px; }
+        .info-box h3 { color: var(--gold); margin-top: 0; border-bottom: 2px solid; padding-bottom: 10px; }
+        
+        .video-container { background: #000; border-radius: 15px; overflow: hidden; border: 2px solid var(--gold); margin: 20px 0; }
+        video { width: 100%; display: block; }
 
-        .vision-text { font-size: 1.2rem; line-height: 1.8; color: #444; text-align: justify; }
-
-        /* حقوقك الشخصية */
-        footer {
-            background: var(--green); color: white; padding: 30px;
-            text-align: center; margin-top: 50px; border-top: 4px solid var(--gold);
-        }
-        .copyright { font-size: 1.1rem; font-weight: bold; }
-        .dev-name { color: var(--gold); font-size: 1.3rem; text-decoration: none; }
-
-        /* زر الوضع الداكن */
-        #theme-btn { position: fixed; top: 20px; left: 20px; background: var(--gold); border: none; padding: 12px; border-radius: 50%; cursor: pointer; color: white; }
+        footer { background: var(--green); color: white; padding: 30px; text-align: center; margin-top: 50px; border-top: 4px solid var(--gold); }
+        .dev-name { color: var(--gold); font-size: 1.3rem; text-decoration: none; font-weight: bold; }
+        #theme-btn { position: fixed; top: 20px; left: 20px; background: var(--gold); border: none; padding: 12px; border-radius: 50%; cursor: pointer; color: white; z-index: 1000; }
     </style>
 </head>
-<body id="body">
+<body>
 
     <button id="theme-btn" onclick="document.body.classList.toggle('dark-mode')"><i class="fas fa-moon"></i></button>
 
@@ -61,34 +42,37 @@
 
     <div class="container">
         <div class="glass-card">
-            <div class="badge"><i class="fas fa-star-and-crescent"></i> مشروع تقني إسلامي قيد التطوير</div>
-            
-            <h2 style="color: var(--green); border-right: 5px solid var(--gold); padding-right: 15px;">رؤية المشروع</h2>
-            
-            <p class="vision-text">
-                يهدف مشروع <strong>"ميزان السنة"</strong> إلى دمج التقنيات الحديثة مع العبادات، حيث يقوم النظام بتحليل زوايا المفاصل أثناء الركوع والسجود للتأكد من موافقتها للسنة النبوية، مما يساعد المصلي على تجويد صلاته حركياً.
-            </p>
+            <div class="badge"><i class="fas fa-star-and-crescent"></i> مشروع تقني إسلامي</div>
+            <h2>رؤية المشروع</h2>
+            <p>تحليل زوايا المفاصل أثناء الصلاة للتأكد من موافقتها للسنة النبوية باستخدام MediaPipe AI.</p>
+            <div class="video-container">
+                <video controls><source src="demo.mp4" type="video/mp4"></video>
+            </div>
+        </div>
 
-            <div style="background: #000; height: 300px; border-radius: 15px; margin-top: 30px; display: flex; align-items: center; justify-content: center; color: var(--gold); border: 2px solid var(--gold);">
-                <i class="fas fa-play-circle fa-4x"></i>
-                <p style="margin-right: 15px;">فيديو العرض demo.mp4</p>
+        <div class="glass-card">
+            <h2><i class="fas fa-book-open"></i> الموسوعة التعليمية</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>أركان الإسلام</h3>
+                    <ul>
+                        <li>الشهادتان</li><li>إقام الصلاة</li><li>إيتاء الزكاة</li><li>صوم رمضان</li><li>حج البيت</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>سنن الحج والعمرة</h3>
+                    <ul>
+                        <li>الاغتسال عند الإحرام</li><li>التلبية</li><li>طواف القدوم</li><li>تقبيل الحجر الأسود</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="copyright">
-            جميع الحقوق محفوظة للمطورة: 
-            <a href="https://github.com/rrrawan764-cloud" class="dev-name">روان الهذلي 💎</a>
-        </div>
-        <p style="opacity: 0.7; margin-top: 10px;">مشروع تخرج - ذكاء اصطناعي 2026</p>
+        <div class="copyright">جميع الحقوق محفوظة للمطورة: <a href="#" class="dev-name">روان الصبحي 💎</a></div>
+        <p>مشروع تخرج - ذكاء اصطناعي 2026</p>
     </footer>
-
-    <style>
-        .dark-mode { background: #1a1a1a !important; color: #eee !important; }
-        .dark-mode .glass-card { background: #2d2d2d; color: #eee; }
-        .dark-mode .vision-text { color: #ccc; }
-    </style>
 
 </body>
 </html>
