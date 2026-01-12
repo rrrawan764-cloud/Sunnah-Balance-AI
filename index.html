@@ -3,143 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ميزان السنة | Sunnah Balance AI</title>
+    <title>ميزان السنة | Quran & Sunnah AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brown: #5D4037; --gold: #C5A059; --light-gold: #E2C991; --white: #FFFFFF; --beige: #F5F5DC;
+            --primary-gold: #D4AF37; --deep-green: #064E3B; --bg-color: #f4f7f6;
+            --card-bg: #ffffff; --text-color: #1F2937;
         }
-
-        body {
-            font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; color: var(--brown);
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
-                        url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-attachment: fixed; background-size: cover;
-        }
-
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-color); margin: 0; color: var(--text-color); }
         header {
-            background: linear-gradient(135deg, var(--brown), #3E2723);
-            color: var(--light-gold); padding: 50px 20px; text-align: center;
-            border-bottom: 4px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #064E3B 0%, #065F46 100%);
+            color: white; padding: 60px 20px; text-align: center;
+            border-bottom: 5px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-
-        header h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-
-        .main-container {
-            max-width: 1100px; margin: 40px auto; display: flex; gap: 30px; padding: 0 20px;
-        }
-
-        /* القائمة المنسدلة على اليمين */
-        .sidebar { width: 30%; }
+        header h1 { font-family: 'Amiri', serif; font-size: 3rem; margin: 0; color: var(--primary-gold); }
+        .container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; display: grid; grid-template-columns: 1fr 350px; gap: 20px; }
+        .main-content { background: var(--card-bg); border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .sidebar { background: var(--card-bg); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); }
+        .video-container { background: #000; border-radius: 15px; overflow: hidden; border: 2px solid var(--primary-gold); margin-bottom: 20px; }
+        video { width: 100%; display: block; }
         
-        .accordion-item {
-            background: var(--white); border: 1px solid var(--gold); border-radius: 10px;
-            margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        /* قسم القرآن والتصحيح */
+        .quran-section { background: #fffcf5; border-radius: 15px; padding: 20px; border: 1px solid var(--primary-gold); margin-top: 20px; }
+        .btn-record { 
+            background: var(--deep-green); color: white; border: none; padding: 10px 20px; 
+            border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s;
         }
+        .btn-record:hover { background: var(--primary-gold); }
+        .status-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }
+        .success { background: #dcfce7; color: #166534; }
 
-        .accordion-header {
-            background: var(--brown); color: var(--light-gold); padding: 15px;
-            cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center;
-        }
+        footer { background: var(--deep-green); color: white; padding: 30px; text-align: center; border-top: 5px solid var(--primary-gold); }
+        .dev-badge { color: var(--primary-gold); text-decoration: none; font-weight: bold; font-size: 1.2rem; }
 
-        .accordion-content {
-            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: var(--white);
-        }
-
-        .accordion-content ul { list-style: none; padding: 15px; margin: 0; }
-        .accordion-content li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.95rem; }
-
-        /* المحتوى الرئيسي والفيديو */
-        .content-area { width: 70%; }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px;
-            border: 2px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .video-wrapper {
-            background: #000; border-radius: 15px; overflow: hidden;
-            border: 3px solid var(--brown); margin-top: 20px; position: relative;
-        }
-
-        video { width: 100%; display: block; box-shadow: inset 0 0 100px rgba(0,0,0,0.5); }
-
-        footer {
-            background: var(--brown); color: var(--light-gold); padding: 25px;
-            text-align: center; border-top: 4px solid var(--gold); margin-top: 50px;
-        }
-
-        .dev-badge {
-            color: var(--gold); font-size: 1.4rem; font-weight: bold; text-decoration: none;
-            display: inline-block; margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .main-container { flex-direction: column; }
-            .sidebar, .content-area { width: 100%; }
-        }
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <header>
         <h1>ميزان السنة</h1>
-        <p>بإشراف المطورة روان الصبحي</p>
+        <p>بإشراف المطورة روان الصبحي - منصة الذكاء الاصطناعي المتكاملة</p>
     </header>
 
-    <div class="main-container">
-        <div class="sidebar">
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><i class="fas fa-mosque"></i> أركان الإسلام</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>الشهادتان</li><li>إقام الصلاة</li><li>إيتاء الزكاة</li><li>صوم رمضان</li><li>حج البيت</li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="main-content">
+            <h2 style="color: var(--deep-green); border-bottom: 2px solid var(--primary-gold);"><i class="fas fa-microscope"></i> نظام تحليل الهيئة والحركة</h2>
+            <div class="video-container">
+                <video controls>
+                    <source src="demo.mp4" type="video/mp4">
+                </video>
             </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><i class="fas fa-kaaba"></i> سنن الحج</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>الاغتسال عند الإحرام</li><li>التلبية</li><li>طواف القدوم</li><li>المبيت بمنى</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><i class="fas fa-hand-holding-heart"></i> سنن العمرة</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>الرمل في الأشواط الثلاثة</li><li>الاضطباع للرجال</li><li>تقبيل الحجر الأسود</li>
-                    </ul>
-                </div>
+            <div class="quran-section">
+                <h3><i class="fas fa-microphone-alt"></i> التصحيح التلقائي للتلاوة (AI)</h3>
+                <p>اضغط على الزر واقرأ "سورة الفاتحة" ليقوم النظام بالتصحيح:</p>
+                <button class="btn-record" id="startBtn" onclick="startRecognition()">
+                    <i class="fas fa-play"></i> ابدأ القراءة الآن
+                </button>
+                <div id="resultText" style="margin-top: 15px; font-style: italic; color: #666;"></div>
+                <div id="status" class="status-badge" style="display:none;"></div>
             </div>
         </div>
 
-        <div class="content-area">
-            <div class="glass-card">
-                <h2 style="color: var(--brown); border-bottom: 2px solid var(--gold); padding-bottom: 10px;">رؤية المشروع التقنية</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    مشروع <strong>"ميزان السنة"</strong> يمثل قفزة نوعية في دمج الذكاء الاصطناعي مع الشعائر الدينية، حيث نستخدم تقنيات MediaPipe لتحليل حركة المصلي وضمان دقة أدائه وفق الهدي النبوي.
-                </p>
-                
-                <div class="video-wrapper">
-                    <video controls poster="https://via.placeholder.com/800x450/5D4037/C5A059?text=Sunnah+Balance+AI">
-                        <source src="demo.mp4" type="video/mp4">
-                        متصفحك لا يدعم الفيديو.
-                    </video>
-                </div>
+        <div class="sidebar">
+            <h3 style="color: var(--deep-green);"><i class="fas fa-book-open"></i> المصحف الرقمي</h3>
+            <select id="surahSelect" style="width: 100%; padding: 8px; border-radius: 5px; margin-bottom: 10px;" onchange="fetchAyahs()">
+                <option value="1">سورة الفاتحة</option>
+                <option value="108">سورة الكوثر</option>
+                <option value="112">سورة الإخلاص</option>
+            </select>
+            <div id="quranContent" style="font-family: 'Amiri', serif; font-size: 1.3rem; line-height: 2; text-align: justify; max-height: 500px; overflow-y: auto; padding: 10px; background: #fafafa; border-radius: 10px;">
+                تحميل الآيات...
             </div>
         </div>
     </div>
@@ -147,22 +83,61 @@
     <footer>
         <div>جميع الحقوق محفوظة للمطورة:</div>
         <a href="#" class="dev-badge">روان الصبحي 💎</a>
-        <p style="opacity: 0.8;">مشروع تخرج - ذكاء اصطناعي 2026</p>
+        <p>مشروع ميزان السنة - 2026</p>
     </footer>
 
     <script>
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('.fa-chevron-down');
-            
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.style.transform = "rotate(0deg)";
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.style.transform = "rotate(180deg)";
-            }
+        // دالة جلب آيات القرآن من API خارجي
+        async function fetchAyahs() {
+            const surahId = document.getElementById('surahSelect').value;
+            const content = document.getElementById('quranContent');
+            content.innerHTML = "جاري التحميل...";
+            try {
+                const response = await fetch(`https://api.alquran.cloud/v1/surah/${surahId}`);
+                const data = await response.json();
+                let ayahs = data.data.ayahs.map(a => `<span style="color:var(--deep-green)">﴿${a.numberInSurah}﴾</span> ${a.text}`).join(' ');
+                content.innerHTML = ayahs;
+            } catch (e) { content.innerHTML = "تعذر تحميل السورة."; }
         }
+
+        // محاكي التصحيح التلقائي بالذكاء الاصطناعي (Web Speech API)
+        function startRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'ar-SA';
+            const btn = document.getElementById('startBtn');
+            const res = document.getElementById('resultText');
+            const status = document.getElementById('status');
+
+            recognition.onstart = () => {
+                btn.innerHTML = "جاري الاستماع... اقرأ الآن";
+                status.style.display = "none";
+            };
+
+            recognition.onresult = (event) => {
+                const text = event.results[0][0].transcript;
+                res.innerHTML = "سمعتك تقول: " + text;
+                
+                // منطق بسيط للمقارنة (مثال لسورة الفاتحة)
+                if(text.includes("الحمد لله") || text.includes("رب العالمين")) {
+                    status.innerHTML = "تلاوة صحيحة ما شاء الله ✅";
+                    status.className = "status-badge success";
+                    status.style.display = "inline-block";
+                } else {
+                    status.innerHTML = "يوجد اختلاف في التلاوة، حاول مرة أخرى ⚠️";
+                    status.style.display = "inline-block";
+                }
+            };
+
+            recognition.onspeechend = () => {
+                recognition.stop();
+                btn.innerHTML = '<i class="fas fa-play"></i> ابدأ القراءة الآن';
+            };
+
+            recognition.start();
+        }
+
+        // تشغيل المصحف عند الفتح
+        window.onload = fetchAyahs;
     </script>
 </body>
 </html>
